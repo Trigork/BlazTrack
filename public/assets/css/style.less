@@ -10,6 +10,7 @@
 ====================== */
 body  {
 	background:@dark_gray;
+	color: white;
 	font-family: 'Alegreya Sans SC', sans-serif;
 	font-weight: 300;
 }
@@ -25,6 +26,7 @@ body  {
 #main-menu ul{
 	display: flex;
 	justify-content: space-around;
+	align-items: baseline;
 	list-style: none;
 	padding: 0 100px;
 	margin: 0;
@@ -34,12 +36,57 @@ body  {
 	display: inline-block;
 }
 
+#main-menu ul #mini-logo{
+	display: none;
+	font-size: 2em;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #fff;
+  border: 3px solid #fff;
+  padding: 4px;
+  margin-top: 5px;
+}
+
 #main-menu ul li a,
 #main-menu ul li a:visited,
 #main-menu ul li a:active{
 	color: white;
 	text-decoration: none;
-	font-size: 18pt;
+	font-size: 2em;
+}
+
+#welcome-slide{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+}
+
+#welcome-slide #logo{
+	font-size: 3em;
+	font-weight: 700;
+	letter-spacing: 5px;
+	color: white;
+	display: inline-block;
+	border: 8px solid white;
+	padding: 16px;
+	position: relative;
+	z-index: 50;
+}
+
+#welcome-slide #slide-background{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: -270% 30%;
+	background-size: 110%;
+	opacity: 0.6;
 }
 
 .blazground{
@@ -50,25 +97,9 @@ body  {
 	background: -o-linear-gradient(left, rgba(99,156,254,1) 0%, rgba(74,49,147,1) 100%);
 	background: -ms-linear-gradient(left, rgba(99,156,254,1) 0%, rgba(74,49,147,1) 100%);
 	background: linear-gradient(to right, rgba(99,156,254,1) 0%, rgba(74,49,147,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#639cfe', endColorstr='#4a3193', GradientType=1 );
 }
 
-#welcome-slide{
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 400px;
-	text-align: center;
-}
-
-#welcome-slide #logo{
-	font-size: 24pt;
-	font-weight: 700;
-	letter-spacing: 5px;
-	color: white;
-	display: inline-block;
-	border: 8px solid white;
-	padding: 16px;
-	margin-top: 200px;
+#content-views{
+	position: relative;
+	z-index: 50;
 }
