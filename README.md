@@ -1,13 +1,8 @@
-# triangular-seed
-Base Angular Project (MEAN + LESS + Bower + Gulp) that covers a bit more my needs than angular-seed
+# blaztrack
 
-To install dependencies and get the base app running just do:
-```
-npm install
-npm start
-```
+Web for local Blazblue Events Tracking. Built with Angular and Node.
 
-If it doesn't work maybe you need nodemon, bower and gulp instaleld and in your system's PATH:
-```
-npm install -g nodemon bower gulp
-```
+Requires Node and Mongo installed and updated.
+After cloning/pulling remember to run ``npm install``
+
+To run the web just do ``gulp start``, that will also keep track of changes in the less and js files, so no restarting is needed.
