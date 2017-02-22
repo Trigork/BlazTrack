@@ -15,46 +15,6 @@ body  {
 	font-weight: 300;
 }
 
-#main-menu{
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 20;
-}
-
-#main-menu ul{
-	display: flex;
-	justify-content: space-around;
-	align-items: baseline;
-	list-style: none;
-	padding: 0 100px;
-	margin: 0;
-}
-
-#main-menu ul li {
-	display: inline-block;
-}
-
-#main-menu ul #mini-logo{
-	display: none;
-	font-size: 2em;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: #fff;
-  border: 3px solid #fff;
-  padding: 4px;
-  margin-top: 5px;
-}
-
-#main-menu ul li a,
-#main-menu ul li a:visited,
-#main-menu ul li a:active{
-	color: white;
-	text-decoration: none;
-	font-size: 2em;
-}
-
 #welcome-slide{
 	position: fixed;
 	top: 0;
@@ -111,8 +71,105 @@ body  {
 	background: linear-gradient(to right, rgba(99,156,254,1) 0%, rgba(74,49,147,1) 100%);
 }
 
+.navbar{
+	margin-bottom: 0;
+}
+
+.navbar-brand {
+	float:none;
+}
+
+.navbar-toggle{
+	margin-left: 15px;
+	margin-right: 0;
+	font-size: 2em;
+}
+
+.navbar-header{
+	text-align: center;
+}
+
+ul.nav li{
+	margin: 0 5px;
+}
+
+ul.nav li a,
+ul.nav li a:visited,
+ul.nav li a:hover,
+ul.nav li a:active{
+	color: white;
+	font-size: 2em;
+	text-decoration: none;
+	background: transparent;
+	display: inline-block;
+}
+
+ul.nav li i{
+	text-align: center;
+	display: inline-block;
+	font-size: 1.5em;
+	width: 20px;
+}
+
+#navbar[aria-expanded='true']{
+	background-color: @dark_gray;
+	border-top: 1px solid @light_gray;
+	border-bottom: 1px solid @light_gray;
+}
+
+#navbar i,
+#navbar[aria-expanded='false'] i{
+	display: none;
+}
+
+#navbar[aria-expanded='true'] i{
+	display: inline-block;
+}
+
+#navbar ul,
+#navbar[aria-expanded='false'] ul{
+	margin-top: 14px;
+	float: right;
+}
+
+#navbar ul li,
+#navbar[aria-expanded='false'] ul li{
+	margin: 0px 5px;
+}
+
+#navbar ul li a,
+#navbar[aria-expanded='false'] ul li a{
+	padding: 15px 5px;
+}
+
+#navbar[aria-expanded='true'] ul{
+	float:none;
+	margin: 0px;
+}
+
+.navbar-header #mini-logo{
+	display: none;
+	font-size: 2em;
+	font-weight: 700;
+	border: 3px solid white;
+	padding: 5px;
+	margin: 0;
+	letter-spacing: 3px;
+	color: white;
+	line-height: 32px;
+	margin-top: 14px;
+}
+
 #main-content{
 	position: relative;
 	z-index: 10;
 	background-color: @dark_gray;
+}
+
+/* MEDIA QUERIES
+====================== */
+@media (max-width: 767px) {
+	#mini-logo{
+		margin-left: -46px !important;
+	}
 }

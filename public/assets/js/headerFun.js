@@ -1,10 +1,18 @@
 $(document).ready(function(){
-  var menuHeight = $('#main-menu').outerHeight() + 15;
   var vOffsetContainer = $('#main-content').offset().top;
   var skipHeight = $('#welcome-slide #home-skip').outerHeight();
   var logoHeight = $('#welcome-slide #logo').outerHeight();
 
+  var getMenuHeight = function(){
+    return 78;
+  }
+
+  var menuHeight = getMenuHeight();
+  var windowHeight = $(window).innerHeight();
+  var slideHeight = $('#welcome-slide').innerHeight();
+
   var contentSize = function(){
+    var menuHeight = getMenuHeight();
     var windowHeight = $(window).innerHeight();
     var slideHeight = $('#welcome-slide').innerHeight();
     $('#main-content').css('height', windowHeight - menuHeight + 'px');
@@ -12,6 +20,7 @@ $(document).ready(function(){
   }
 
   var backgroundSize = function(){
+    var menuHeight = getMenuHeight();
     var windowHeight = $(window).innerHeight();
     var windowWidth = $(window).innerWidth();
     var slideHeight = $('#welcome-slide').innerHeight();
@@ -28,6 +37,7 @@ $(document).ready(function(){
   }
 
   var placeLogo = function(){
+    var menuHeight = getMenuHeight();
     var windowHeight = $(window).innerHeight();
     var slideHeight = $('#welcome-slide').innerHeight();
     var scrollWindow = $(window).scrollTop();
@@ -36,6 +46,7 @@ $(document).ready(function(){
   }
 
   var placeContent = function(){
+    var menuHeight = getMenuHeight();
     var windowHeight = $(window).innerHeight();
     var slideHeight = $('#welcome-slide').innerHeight();
     $('#main-content').css('top', slideHeight + 'px');
@@ -60,12 +71,12 @@ $(document).ready(function(){
   });
 
   $(window).scroll(function() {
+    var menuHeight = getMenuHeight();
     var vOffsetContainer = $('#main-content').offset().top;
     var scrollWindow = $(window).scrollTop();
     if ((vOffsetContainer - scrollWindow) <= menuHeight + logoHeight){
-      $('#mini-logo').show("fast");
-      $('#welcome-slide #home-skip').hide("fast");
       $('#mini-logo').css('display', 'inline-block');
+      $('#welcome-slide #home-skip').hide("fast");
       $('#welcome-slide #logo').hide("fast");
     } else {
       $('#mini-logo').hide("fast");
