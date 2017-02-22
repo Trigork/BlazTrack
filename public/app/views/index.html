@@ -24,8 +24,31 @@
 		<link rel="stylesheet" href="assets/libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" type="text/css"/>
 		<link rel="stylesheet" href="assets/css/animate.css">
 		<link rel="stylesheet" href="assets/css/style.min.css">
+
+		<!-- JS -->
+		<!-- load angular and angular-route via CDN -->
+		<script src="assets/libs/jquery/dist/jquery.min.js"></script>
+		<script src="assets/libs/angular/angular.js"></script>
+		<script src="assets/libs/angular-route/angular-route.min.js"></script>
+		<script src="assets/libs/angular-animate/angular-animate.min.js"></script>
+		<script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="assets/libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="assets/libs/ng-scrollbars/dist/scrollbars.min.js"></script>
+
+		<!-- controllers -->
+		<script src="app/controllers/eventsCtrl.js"></script>
+		<script src="app/controllers/profilesCtrl.js"></script>
+		<script src="app/controllers/rosterCtrl.js"></script>
+		<script src="app/controllers/standingsCtrl.js"></script>
+
+		<!-- main Angular app files -->
+		<script src="app/app.routes.js"></script>
+		<script src="app/app.js"></script>
+
+		<!-- extra scripts -->
+		<script src="assets/js/headerFun.js"></script>
 	</head>
-	<body class="container-full" ng-app="myApp">
+	<body class="container-full" ng-app="blaztrack">
 		<nav class="navbar navbar-fixed-top" id='main-menu'>
 		  <div class="container">
 		    <div class="navbar-header">
@@ -77,28 +100,5 @@
 					<div class="container" ng-view></div>
 			</div>
  		</main>
-
-		<!-- JS -->
-		<!-- load angular and angular-route via CDN -->
-		<script src="assets/libs/jquery/dist/jquery.min.js"></script>
-		<script src="assets/libs/angular/angular.js"></script>
-		<script src="assets/libs/angular-route/angular-route.min.js"></script>
-		<script src="assets/libs/angular-animate/angular-animate.min.js"></script>
-		<script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="assets/libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-		<script src="assets/libs/ng-scrollbars/dist/scrollbars.min.js"></script>
-
-		<!-- controllers -->
-		<script src="app/controllers/eventsCtrl.js"></script>
-		<script src="app/controllers/profilesCtrl.js"></script>
-		<script src="app/controllers/rosterCtrl.js"></script>
-		<script src="app/controllers/standingsCtrl.js"></script>
-
-		<!-- main Angular app files -->
-		<script src="app/app.routes.js"></script>
-		<script src="app/app.js"></script>
-
-		<!-- extra scripts -->
-		<script src="assets/js/headerFun.js"></script>
 	</body>
 </html>
