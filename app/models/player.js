@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 // player schema
 var PlayerSchema = new Schema({
   name: { type: String, required: true, index: { unique: true }},
-  avatar_url: { type: String, required: true }
+  avatar_url: { type: String }
 });
 
 // return the model

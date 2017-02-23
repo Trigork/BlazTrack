@@ -21,11 +21,18 @@ app.use(function(req, res, next) {
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
 
-require('./apiRoutes')(app, express);
+var apiRouter = express.Router();
+require('./apiRoutes')(apiRouter, config.secret);
+require('./apiRoutesAuth')(apiRouter, config.secret);
+app.use('/api', apiRouter);
 
 // MAIN CATCHALL ROUTE ---------------
 // SEND USERS TO FRONTEND ------------
 // has to be registered after API ROUTES
+app.get('/admin', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/app/views/admin.html'));
+});
+
 app.get('*', function(req, res) {
 	res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
 });

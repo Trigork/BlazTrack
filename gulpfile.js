@@ -8,7 +8,7 @@ var rename    = require('gulp-rename');
 // define a task called css
 gulp.task('css', function() {
 	// grab the less file, process the LESS, save to style.css
-	return gulp.src('public/assets/css/style.less')
+	return gulp.src('public/assets/css/*.less')
 		.pipe(less())
 		.pipe(minifyCSS())
 		.pipe(rename({ suffix: '.min' }))
