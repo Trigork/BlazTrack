@@ -78,16 +78,19 @@ module.exports = function(apiRouter, secret){
   apiRouter.route('/players/:player_id')
     .get(function(req, res){
       Player.findById(req.params.player_id, function(err, player){
-        if (player){
+          if (err) res.send(err);
           res.json(player);
-        } else {
-          Player.findOne({
-            name: req.params.player_id
-          }).select('name avatar_url').exec(function(err, player){
-            if (err) res.send(err);
-            res.json(player);
-          });
-        }
+        });
+    });
+
+  // GET - Player by name
+  apiRouter.route('/players/name/:player_name')
+    .get(function(req, res){
+      Player.findOne({
+        name: req.params.player_name
+      }).select('name avatar_url').exec(function(err, player){
+        if (err) res.send(err);
+        res.json(player);
       });
     });
 
@@ -101,9 +104,38 @@ module.exports = function(apiRouter, secret){
         });
       });
 
-    // TODO
-    // GET - Character by id/code/name
-    // Search how to do this (or queries and such)
+    // GET - Character by id
+    apiRouter.route('/characters/:char_id')
+      .get(function(req, res){
+        Character.find(function(err, characters){
+          if(err) res.send(err);
+          res.json(characters)
+        });
+      });
+
+    // GET - Character by code
+    apiRouter.route('/characters/code/:char_code')
+      .get(function(req, res){
+        Character.findOne({
+          code: req.params.char_code
+        }).select('code name description bnbs resources')
+          .exec(function(err, char){
+            if (err) res.send(err);
+            res.json(char);
+          });
+      });
+
+    // GET - Character by code
+    apiRouter.route('/characters/name/:char_name')
+      .get(function(req, res){
+        Character.findOne({
+          name: req.params.char_name
+        }).select('code name description bnbs resources')
+          .exec(function(err, char){
+            if (err) res.send(err);
+            res.json(char);
+          });
+      });
 
 
 }
