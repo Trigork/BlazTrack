@@ -3,8 +3,10 @@ var app        = express();
 var bodyParser = require('body-parser');
 var morgan     = require('morgan');
 var mongoose 	 = require('mongoose');
+var jwt = require('jsonwebtoken');
 var config     = require('./config');
 var path       = require('path');
+
 
 mongoose.connect(config.database);
 
@@ -22,8 +24,33 @@ app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
 
 var apiRouter = express.Router();
-require('./apiRoutes')(apiRouter, config.secret);
-require('./apiRoutesAuth')(apiRouter, config.secret);
+require('./app/routes/public.routes')(apiRouter, config.secret);
+
+// Auth Middleware
+// Prevents users to use any of the points below without the token
+apiRouter.use(function(req, res, next){
+	var token = req.body.token || req.param('token') || req.headers['x-access-token'];
+	if (token){
+		jwt.verify(token, config.secret, function(err, decoded){
+			if (err){
+				return res.status(403).send({
+					success: false,
+					message: 'Failed to authenticate token.'
+				});
+			} else {
+				req.decoded = decoded;
+				next();
+			}
+		});
+	} else {
+		return res.status(403).send({
+			success: false,
+			message: 'No token provided.'
+		})
+	}
+});
+
+require('./app/routes/auth.routes')(apiRouter, config.secret);
 app.use('/api', apiRouter);
 
 // MAIN CATCHALL ROUTE ---------------

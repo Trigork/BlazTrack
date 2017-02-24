@@ -14,6 +14,8 @@ var UserSchema = new Schema({
 UserSchema.pre('save', function(next) {
   var user = this;
 
+  this.increment();
+
   // hash the password only if the password has been changed or user is new
   if (!user.isModified('password')) return next();
 
